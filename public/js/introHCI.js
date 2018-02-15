@@ -1,3 +1,7 @@
+//API
+$.get("http://localhost:3000", callBackFn)
+$.post("http://localhost:3000", {"json":"json"}, callBackFn)
+//end of API
 'use strict';
 
 // Call this function when the page loads (the "ready" event)
@@ -5,13 +9,14 @@ $(document).ready(function() {
 	initializePage();
 })
 
+
 /*
  * Function that is called when the document is ready.
  */
 function initializePage() {
 	$('.project a').click(addProjectDetails);
 
-	$('#colorBtn').click(randomizeColors);
+	/*$('#colorBtn').click(randomizeColors);*/
 }
 
 /*
@@ -27,4 +32,19 @@ function addProjectDetails(e) {
 	var idNumber = projectID.substr('project'.length);
 
 	console.log("User clicked on project " + idNumber);
+}
+
+//slide 36
+function addProject(result) {
+  var projectHTML = '<a href="#" class="thumbnail">' +
+    '<img src="' + result['image'] + '" class="img">' +
+    '<p>' + result['title'] + '</p>' +
+    '<p><small>' + result['date'] +
+    '</small></p></a>'; 
+}
+
+function callBackFn(response) {
+
+	console.log(result);
+	// body...
 }
